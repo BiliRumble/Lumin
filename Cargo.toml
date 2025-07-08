@@ -1,0 +1,22 @@
+[package]
+name = "lumin"
+description = "A simple cross-platform desktop application template using Rust and Slint"
+version = "0.0.1"
+authors = ["bilirumble <bilirumble@outlook.com>"]
+license = "MIT-0"
+edition = "2024"
+
+[profile.release]
+codegen-units = 1
+lto = true
+panic = "abort"
+strip = true
+
+[dependencies]
+env_logger = "0.11.8"
+log = "0.4.27"
+slint = "1.12.1"
+tokio = { version = "1.46.1", features = ["rt-multi-thread", "macros"]}
+
+[build-dependencies]
+slint-build = "1.12.1"

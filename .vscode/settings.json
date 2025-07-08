@@ -1,0 +1,22 @@
+{
+    "explorer.fileNesting.enabled": true,
+	"explorer.fileNesting.expand": true,
+	"explorer.fileNesting.patterns": {
+		"Cargo.toml": "Cargo.lock,build.rs",
+		"README.md": "CONTRIBUTING.md,LICENSE,.gitignore,logo.svg",
+	},
+	"editor.formatOnSave": true,
+    "editor.formatOnPaste": true,
+    "[rust]": {
+        "editor.formatOnSave": true,
+        "editor.defaultFormatter": "rust-lang.rust-analyzer",
+        "editor.tabSize": 4,
+        "editor.insertSpaces": true
+    },
+    "[slint]": {
+        "editor.formatOnSave": true,
+        "editor.defaultFormatter": "Slint.slint",
+        "editor.tabSize": 4,
+        "editor.insertSpaces": true
+    }
+}
