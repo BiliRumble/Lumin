@@ -1,17 +1,74 @@
-import { AboutSlint, VerticalBox } from "std-widgets.slint";
+import { AboutSlint, VerticalBox, LineEdit, Button } from "std-widgets.slint";
 
 export component MainWindow inherits Window {
-    title: "Lumin";
+    title: "Lumin - Onani Number Calculator";
     min-width: 1050px;
     min-height: 590px;
 
+    callback calculate-onani(string) -> string;
+
     VerticalBox {
-        Text {
-            text: "Hello World!";
+        Image {
+            source: @image-url("../logo.svg");
+            height: 200px;
         }
 
-        AboutSlint {
-            preferred-height: 150px;
+        Text {
+            text: "Lumin - Onani Number Calculator";
+            font-size: 20px;
+            horizontal-alignment: center;
+            vertical-alignment: center;
+            height: 30px;
+        }
+
+        Text {
+            text: "Enter a number to calculate its Onani representation";
+            font-size: 12px;
+            height: 20px;
+            horizontal-alignment: center;
+            vertical-alignment: center;
+        }
+
+        VerticalBox {
+            spacing: 10px;
+            padding: 20px;
+
+            Text {
+                text: "Input Number:";
+                font-size: 14px;
+                horizontal-alignment: center;
+            }
+
+            input-field := LineEdit {
+                placeholder-text: "Enter a positive integer...";
+                horizontal-alignment: center;
+                width: 100%;
+                height: 30px;
+            }
+
+            Button {
+                text: "Calculate";
+                clicked => {
+                    result-text.text = root.calculate-onani(input-field.text);
+                }
+            }
+
+            Text {
+                text: "Result:";
+                font-size: 14px;
+                height: 16px;
+                horizontal-alignment: center;
+            }
+
+            result-text := Text {
+                text: "";
+                font-size: 12px;
+                horizontal-alignment: center;
+                vertical-alignment: center;
+                wrap: word-wrap;
+                height: 24px;
+                width: 100%;
+            }
         }
     }
 }
